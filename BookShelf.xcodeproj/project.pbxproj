@@ -56,7 +56,7 @@
 /* Begin PBXFileReference section */
 		415FB5962DA435300016139C /* BookShelf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BookShelf; sourceTree = BUILT_PRODUCTS_DIR; };
 		415FB5992DA435300016139C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		415FB5A12DA436F80016139C /* Лабораторная №1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Лабораторная №1.md"; sourceTree = "<group>"; };
+		415FB5A12DA436F80016139C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		415FB5A22DA4375A0016139C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		415FB5A42DA4387C0016139C /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		415FB5A72DA43A650016139C /* BookRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepresentation.swift; sourceTree = "<group>"; };
@@ -115,6 +115,7 @@
 		415FB58D2DA4352F0016139C = {
 			isa = PBXGroup;
 			children = (
+				415FB5A12DA436F80016139C /* README.md */,
 				415FB5982DA435300016139C /* BookShelf */,
 				415FB5972DA435300016139C /* Products */,
 				D05D018CFCBEE34AE2EE18E0 /* Pods */,
@@ -141,7 +142,6 @@
 				415FB5A62DA438E50016139C /* Repository */,
 				415FB5A02DA436820016139C /* Model */,
 				415FB5992DA435300016139C /* main.swift */,
-				415FB5A12DA436F80016139C /* Лабораторная №1.md */,
 			);
 			path = BookShelf;
 			sourceTree = "<group>";
