@@ -9,7 +9,7 @@ import Foundation
 
 
 struct AddBookRequest{
-    let book: BookRepresentation
+    let book: BookDto
 }
 
 struct DeleteBookRequest{

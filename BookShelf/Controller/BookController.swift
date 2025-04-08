@@ -233,11 +233,11 @@ struct BookConsoleController : Controller {
             return addBook()
         }
         
-        var book : BookRepresentation
+        var book : BookDto
         
         switch command {
         case 0: do {
-            book = Book(title: title, author: author, publicationYear:  publicationYear, genre: genre)
+            book = SimpleBookDto(id: nil, title: title, author: author, publicationYear:  publicationYear, genre: genre)
         }
             
         case 1: do {
@@ -253,7 +253,7 @@ struct BookConsoleController : Controller {
                 print("Некорректный ввод. Пожалуйста, введите число.\n")
                 return addBook()
             }
-            book = ComicBook(title: title, author: author, genre: genre, publicationNumber: number)
+            book = ComicBookDto(id: nil, title: title, author: author, publicationYear: publicationYear, genre: genre, publicationNumber: number)
         }
             
         case 2: do {
@@ -269,14 +269,13 @@ struct BookConsoleController : Controller {
                 print("Некорректный ввод. Пожалуйста, введите число.\n")
                 return addBook()
             }
-            book = StudyBook(title: title, author: author, genre: genre, courseNumber: number)
+            book = StudyBookDto(id: nil, title: title, author: author, publicationYear: publicationYear, genre: genre, courseNumber: number)
         }
         default:
             print("Некорректный ввод. Пожалуйста, введите число.\n")
             return addBook()
         }
         
-        book.publicationYear=publicationYear
         
         let responce  = service.add(request: AddBookRequest(book: book))
         

@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct InMemoryBookRepository : Repository{
-    
+struct InMemoryBookRepository : Repository {
+
     public typealias Element = BookRepresentation
         
-    var array: [UUID:any Element] = [:]
+    var array: [UUID:Element] = [:]
     
-    public mutating func add(element: any Element) -> Result<Void, Error> {
+    public mutating func add(element: Element) -> Result<Void, Error> {
         
         if (array[element.id] != nil){
             return 
@@ -24,7 +24,7 @@ struct InMemoryBookRepository : Repository{
         return .success(())
     }
     
-    mutating func modify(element: any Element) -> Result<Void, Error> {
+    mutating func modify(element: Element) -> Result<Void, Error> {
         
         if (array[element.id] == nil){
             return .failure(BookShelfError.bookNotExists("bookNotExists"))
@@ -44,14 +44,14 @@ struct InMemoryBookRepository : Repository{
         return .success(())
     }
     
-    func get() -> Result<[any Element], Error> {
+    func get() -> Result<[Element], Error> {
         return .success(Array(array.values))
     }
     
-    func getById(by id: UUID) -> Result<any Element, Error> {
+    func getById(by id: UUID) -> Result<Element?, Error> {
         
         guard let element = array[id] else {
-            return .failure(BookShelfError.bookNotExists("bookNotExists"))
+            return .success(nil)
         }
         
         return .success(element)

@@ -13,6 +13,6 @@ protocol Repository{
     mutating func add(element: Element) -> Result<Void, Error>
     mutating func delete(by id: UUID) -> Result<Void, Error>
     func get() -> Result<[Element], Error>
-    func getById(by id: UUID) -> Result<Element, Error>
+    func getById(by id: UUID) -> Result<Element?, Error>
     mutating func modify(element: Element) -> Result<Void, Error>
 }

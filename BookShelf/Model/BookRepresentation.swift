@@ -8,7 +8,7 @@
 import Foundation
 
 protocol BookRepresentation {
-    var id: UUID { get}
+    var id: UUID { get set}
     var title: String { get set }
     var author: String { get set }
     var publicationYear: UInt64? { get set}

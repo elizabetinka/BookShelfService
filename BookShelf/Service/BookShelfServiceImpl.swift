@@ -21,7 +21,7 @@ struct BookShelfServiceImpl<T:Repository> : BookShelfService where T.Element == 
             return .init(status: false, error: BookShelfError.emptyData("empty title or author"))
         }
         
-        switch bookRepostory.add(element: request.book) {
+        switch bookRepostory.add(element: toModel(dto: request.book)) {
             
         case .failure(let error):
                 return .init(status: false, error: error)
@@ -46,7 +46,7 @@ struct BookShelfServiceImpl<T:Repository> : BookShelfService where T.Element == 
         case .failure(let error):
                 return .init(status: false, error: error, books: [])
         case .success(let books):
-            return .init(status: true, error: nil, books: books)
+            return .init(status: true, error: nil, books: books.map { fromModel(model: $0)})
         }
     }
     
@@ -56,14 +56,15 @@ struct BookShelfServiceImpl<T:Repository> : BookShelfService where T.Element == 
         case .failure(let error):
                 return .init(status: false, error: error, books: [])
             
-        case .success(let books):
-            return .init(status: true, error: nil, books: filter(request: request, books: books))
+        case .success(var books):
+            let books_dto =  books.map { fromModel(model: $0)}
+            return .init(status: true, error: nil, books: filter(request: request, books: books_dto))
         }
     }
     
-    private func filter(request: FilterBookRequest, books: [BookRepresentation]) -> [BookRepresentation]{
+    private func filter(request: FilterBookRequest, books: [BookDto]) -> [BookDto]{
         
-        var ans: [BookRepresentation] = books
+        var ans: [BookDto] = books
         
         if let id = request.id{
             ans=ans.filter { $0.id == id }

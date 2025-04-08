@@ -25,13 +25,13 @@ struct DeleteBookResponce :  Responce {
 struct GetBookResponce :  Responce {
     let status: Bool
     let error: Error?
-    let books: [BookRepresentation]
+    let books: [BookDto]
 }
 
 struct FilterBookResponce :  Responce {
     let status: Bool
     let error: Error?
-    let books: [BookRepresentation]
+    let books: [BookDto]
 }
 
 

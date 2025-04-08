@@ -10,6 +10,6 @@ import Foundation
 var cosoleView = ConsoleView(
     controller: BookConsoleController(
     service: BookShelfServiceImpl(
-    repository: InMemoryBookRepository())))
+    repository: CoreDataBookRepository())))
 
 cosoleView.run()

@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum Genre {
-    case fiction
-    case nonFiction
-    case mystery
-    case sciFi
-    case biography
+enum Genre : Int16 {
+    case fiction = 0
+    case nonFiction = 1
+    case mystery = 2
+    case sciFi = 3
+    case biography = 4
 }
